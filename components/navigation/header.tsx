@@ -15,7 +15,8 @@ import SecondaryRelatedSections from './secondary-related-sections-navbar';
 
 export const Header = async () => {
   const marketplaceSectionsNames = await db.productCategory.findMany({ select: { name: true, url: true } })
-  const newsSectionsNames = await db.category.findMany({ select: { name_ar: true, name: true } })
+  // const newsSectionsNames = await db.category.findMany({ select: { name_ar: true, name: true } })
+  const newsSectionsNames = [{ name_ar: "اسم", name: "name" }]
 
   return (
     <nav className="sticky flex flex-col items-stretch h-fit border-b w-full bg-white z-50 shadow-sm">
