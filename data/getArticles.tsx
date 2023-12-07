@@ -7,25 +7,26 @@ export const revalidate = 300; // 5min cache
 
 export async function getLatestArticles(num: number) {
   try {
-    const res = await db.article.findMany({
-      select: {
-        title: true,
-        short_slug: true,
-        slug: true,
-        likes: true,
-        shares: true,
-        published_at: true,
-        google_thumb: true,
-        article_google_url: true,
-        article_source_url: true
-      },
-      orderBy: {
-        published_at: 'desc'
-      },
-      take: num
-    });
+    // const res = await db.article.findMany({
+    //   select: {
+    //     title: true,
+    //     short_slug: true,
+    //     slug: true,
+    //     likes: true,
+    //     shares: true,
+    //     published_at: true,
+    //     google_thumb: true,
+    //     article_google_url: true,
+    //     article_source_url: true
+    //   },
+    //   orderBy: {
+    //     published_at: 'desc'
+    //   },
+    //   take: num
+    // });
 
-    return res;
+    // return res;
+    return null
   } catch (error) {
     console.log(`[getLatestArticles] [Error] num [${num}], error: ${error}`);
 
@@ -37,25 +38,26 @@ export async function getMostViewedArticles(num: number) {
   // most viewed articles of all time, include another argument for period "day", or "week", or "month"
   // and take it to the prisma call to filter based on it now-day/now-week/now-month, with a WHERE clause on the published_at or something like that
   try {
-    const res = await db.article.findMany({
-      select: {
-        title: true,
-        short_slug: true,
-        slug: true,
-        google_thumb: true,
-        article_google_url: true,
-        article_source_url: true,
-        likes: true,
-        shares: true,
-        published_at: true
-      },
-      orderBy: {
-        views: 'desc'
-      },
-      take: num
-    });
+    // const res = await db.article.findMany({
+    //   select: {
+    //     title: true,
+    //     short_slug: true,
+    //     slug: true,
+    //     google_thumb: true,
+    //     article_google_url: true,
+    //     article_source_url: true,
+    //     likes: true,
+    //     shares: true,
+    //     published_at: true
+    //   },
+    //   orderBy: {
+    //     views: 'desc'
+    //   },
+    //   take: num
+    // });
 
-    return res;
+    // return res;
+    return null
   } catch (error) {
     console.log(`[getMostViewedArticles] [Error] num [${num}], error: ${error}`);
 
@@ -65,32 +67,33 @@ export async function getMostViewedArticles(num: number) {
 
 export async function getRelatedArticles(short_slugs: string[]) {
   try {
-    const res = await db.article.findMany({
-      where: {
-        short_slug: {
-          in: short_slugs
-        }
-      },
-      select: {
-        title: true,
-        short_slug: true,
-        slug: true,
-        likes: true,
-        shares: true,
-        published_at: true,
-        google_thumb: true,
-        article_google_url: true,
-        article_source_url: true,
-        related_coverage_article: true,
-        related_coverage_url: true,
-        related_coverage_tweets: true,
-        categoryId: true,
-        sourceId: true,
-        scraped_from: true
-      }
-    });
+    // const res = await db.article.findMany({
+    //   where: {
+    //     short_slug: {
+    //       in: short_slugs
+    //     }
+    //   },
+    //   select: {
+    //     title: true,
+    //     short_slug: true,
+    //     slug: true,
+    //     likes: true,
+    //     shares: true,
+    //     published_at: true,
+    //     google_thumb: true,
+    //     article_google_url: true,
+    //     article_source_url: true,
+    //     related_coverage_article: true,
+    //     related_coverage_url: true,
+    //     related_coverage_tweets: true,
+    //     categoryId: true,
+    //     sourceId: true,
+    //     scraped_from: true
+    //   }
+    // });
 
-    return res;
+    // return res;
+    return null
   } catch (error) {
     console.log(`[getLatestArticles] [Error] short_slugs: [${short_slugs}], error: ${error}`);
     return null;
@@ -98,23 +101,24 @@ export async function getRelatedArticles(short_slugs: string[]) {
 }
 
 export async function getTopHeadlineArticles(num: number) {
-  const articles = await db.article.findMany({
-    where: { top_headline: true },
-    select: {
-      title: true,
-      short_slug: true,
-      likes: true,
-      views: true,
-      published_at: true,
-      google_thumb: true,
-      categoryId: true
-    },
-    orderBy: {
-      published_at: 'desc'
-    },
-    take: num
-  });
-  return articles;
+  // const articles = await db.article.findMany({
+  //   where: { top_headline: true },
+  //   select: {
+  //     title: true,
+  //     short_slug: true,
+  //     likes: true,
+  //     views: true,
+  //     published_at: true,
+  //     google_thumb: true,
+  //     categoryId: true
+  //   },
+  //   orderBy: {
+  //     published_at: 'desc'
+  //   },
+  //   take: num
+  // });
+  // return articles;
+  return null
 }
 
 // export async function getLatestCategoryArticles(category: string, num: number, excludeRelated?: boolean) {
@@ -150,26 +154,27 @@ export async function getTopHeadlineArticles(num: number) {
 // }
 
 export async function getLatestCategoryArticles(category: string, num: number) {
-  const data = await db.category.findMany({
-    where: { name: category },
-    include: {
-      articles: {
-        select: {
-          title: true,
-          short_slug: true,
-          likes: true,
-          views: true,
-          published_at: true,
-          google_thumb: true,
-          categoryId: true,
-          related_coverage_tweets: true,
-          related_coverage_article: true,
-          related_coverage_url: true
-        },
-        orderBy: { published_at: 'desc' },
-        take: num
-      }
-    }
-  });
-  return data;
+  // const data = await db.category.findMany({
+  //   where: { name: category },
+  //   include: {
+  //     articles: {
+  //       select: {
+  //         title: true,
+  //         short_slug: true,
+  //         likes: true,
+  //         views: true,
+  //         published_at: true,
+  //         google_thumb: true,
+  //         categoryId: true,
+  //         related_coverage_tweets: true,
+  //         related_coverage_article: true,
+  //         related_coverage_url: true
+  //       },
+  //       orderBy: { published_at: 'desc' },
+  //       take: num
+  //     }
+  //   }
+  // });
+  // return data;
+  return null
 }

@@ -8,20 +8,20 @@ import { UTApi } from 'uploadthing/server';
 
 const utapi = new UTApi();
 
-export async function increment(slug: string, type: string) {
-  slug = decodeURIComponent(slug);
-  const data = await db.article.update({
-    where: {
-      ...(slug.length < 5 ? { short_slug: slug } : { slug: slug })
-    },
-    data: {
-      ...(type === 'view' ? { views: { increment: 1 } } : { likes: { increment: 1 } })
-    },
-    select: { likes: true, shares: true, views: true }
-  });
+// export async function increment(slug: string, type: string) {
+//   slug = decodeURIComponent(slug);
+//   const data = await db.article.update({
+//     where: {
+//       ...(slug.length < 5 ? { short_slug: slug } : { slug: slug })
+//     },
+//     data: {
+//       ...(type === 'view' ? { views: { increment: 1 } } : { likes: { increment: 1 } })
+//     },
+//     select: { likes: true, shares: true, views: true }
+//   });
 
-  return data;
-}
+//   return data;
+// }
 
 export async function assignRole(userEmail: string, roleName: string) {
   console.log('assigning default role to: ', userEmail);

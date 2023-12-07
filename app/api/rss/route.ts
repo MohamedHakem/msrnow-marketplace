@@ -41,55 +41,57 @@ export async function GET(request: Request, { params }: { params: { year: string
 }
 
 async function getRSS() {
-  const articles = await db.article.findMany({
-    orderBy: {
-      published_at: 'desc'
-    },
-    select: {
-      title: true,
-      slug: true,
-      short_slug: true,
-      published_at: true,
-      google_thumb: true
-    },
-    take: 50
-  });
+  // const articles = await db.article.findMany({
+  //   orderBy: {
+  //     published_at: 'desc'
+  //   },
+  //   select: {
+  //     title: true,
+  //     slug: true,
+  //     short_slug: true,
+  //     published_at: true,
+  //     google_thumb: true
+  //   },
+  //   take: 50
+  // });
 
-  if (!articles.length) {
-    return null;
-  }
+  return null
 
-  let xml = `<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:mi="http://schemas.ingestion.microsoft.com/common/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
-  <channel>
-    <title>كل اخبارك</title>
-    <link>https://www.msrnow.com/</link>
-    <description>كل اخبارك - البوابة العربية للأخبار - مصدرك الأول للأخبار باللغة العربية</description>
-    <language>ar-eg</language>
-    <lastBuildDate>${new Date()}</lastBuildDate>
-    <copyright>كل أخبارك</copyright>`;
+  // if (!articles.length) {
+  //   return null;
+  // }
 
-  articles.forEach((item) => {
-    xml += `
-      <item>
-      <title>${item.title}</title>
-      <link>https://www.msrnow.com/${item.slug}</link>
-      <guid isPermaLink="false">${item.short_slug}</guid>
-      <pubDate>${formatDate(item.published_at)}</pubDate>
-      <content:encoded><![CDATA[ <img 
-        src="${item.google_thumb}" /> ]]>
-        </content:encoded>
-      <image>
-      <url>${item.google_thumb.replace('&', '&amp;')}</url>
-      </image>
-      <media:content url="${item.google_thumb.replace('&', '&amp;')}" type="image/jpeg" medium="image"> </media:content>
-        </item>`;
-  });
+  // let xml = `<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:mi="http://schemas.ingestion.microsoft.com/common/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  // <channel>
+  //   <title>كل اخبارك</title>
+  //   <link>https://www.msrnow.com/</link>
+  //   <description>كل اخبارك - البوابة العربية للأخبار - مصدرك الأول للأخبار باللغة العربية</description>
+  //   <language>ar-eg</language>
+  //   <lastBuildDate>${new Date()}</lastBuildDate>
+  //   <copyright>كل أخبارك</copyright>`;
 
-  xml += `
-  </channel>
-  </rss>`;
+  // articles.forEach((item) => {
+  //   xml += `
+  //     <item>
+  //     <title>${item.title}</title>
+  //     <link>https://www.msrnow.com/${item.slug}</link>
+  //     <guid isPermaLink="false">${item.short_slug}</guid>
+  //     <pubDate>${formatDate(item.published_at)}</pubDate>
+  //     <content:encoded><![CDATA[ <img 
+  //       src="${item.google_thumb}" /> ]]>
+  //       </content:encoded>
+  //     <image>
+  //     <url>${item.google_thumb.replace('&', '&amp;')}</url>
+  //     </image>
+  //     <media:content url="${item.google_thumb.replace('&', '&amp;')}" type="image/jpeg" medium="image"> </media:content>
+  //       </item>`;
+  // });
 
-  return xml;
+  // xml += `
+  // </channel>
+  // </rss>`;
+
+  // return xml;
 }
 
 const formatDate = (date: Date) => {
