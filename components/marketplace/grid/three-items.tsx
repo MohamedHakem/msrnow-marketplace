@@ -19,7 +19,7 @@ export async function ThreeItemGrid({ products }: { products: marketplaceProduct
 function ThreeItemGridItem({ item, size, priority }: { item: marketplaceProductType; size: 'full' | 'half'; priority?: boolean }) {
   return (
     <div className={size === 'full' ? 'md:col-span-4 md:row-span-2' : 'md:col-span-2 md:row-span-1'}>
-      <Link className="relative block aspect-square h-full w-full" href={`/marketplace`}>
+      <Link className="relative block aspect-square h-full w-full" href={`/`}>
         {/* <GridTileImage
           src={item.images[0].url}
           fill

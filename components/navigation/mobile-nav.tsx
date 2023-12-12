@@ -7,7 +7,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 export const MobileNav = () => {
   const items = [
     { title: 'الرئيسية', url: "/" },
-    { title: 'المتجر - بيع واشتري أي حاجة`', url: "/marketplace" },
+    { title: 'المتجر - بيع واشتري أي حاجة`', url: "/" },
     { title: 'دليل المنتج المصري', url: "/made-in-egypt" },
     { title: 'الكورة', url: "/news/sports" },
     { title: 'أهم عناوين الأخبار', url: "/news/top-headlines" },

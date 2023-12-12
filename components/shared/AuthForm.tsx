@@ -68,7 +68,7 @@ export function AuthForm() {
           }
 
           if (callback?.ok) {
-            router.push('/marketplace');
+            router.push('/');
           }
         })
         .catch(() => toast.error('حدث خطأ! حاول مرة أخري 🙏'))
@@ -86,7 +86,7 @@ export function AuthForm() {
           }
 
           if (callback?.ok) {
-            router.push('/marketplace');
+            router.push('/');
           }
         })
         .finally(() => setIsLoading(false));
@@ -97,14 +97,14 @@ export function AuthForm() {
   const socialAction = (action: string) => {
     setIsLoading(true);
 
-    signIn(action, { callbackUrl: '/marketplace' })
+    signIn(action, { callbackUrl: '/' })
       .then((callback) => {
         if (callback?.error) {
           toast.error('خطأ ببيانات تسجيل الدخول. تأكد من بياناتك وحاول مرة أخري!');
         }
 
         if (callback?.ok) {
-          router.push('/marketplace');
+          router.push('/');
         }
       })
       .finally(() => setIsLoading(false));

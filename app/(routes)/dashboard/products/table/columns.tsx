@@ -21,7 +21,7 @@ export const columns: ColumnDef<dataTableProductType>[] = [
     cell: ({ row }) => {
       const product = row.original
       return (
-        <Link href={`/marketplace/product/${product.رابط}`}
+        <Link href={`/product/${product.رابط}`}
           className="underline-offset-[6px] underline text-[#00E] font-semibold max-w-[500px] truncate">
           {product.العنوان}
         </Link>
@@ -115,7 +115,7 @@ export const columns: ColumnDef<dataTableProductType>[] = [
           </Button>
           <Button 
             variant={"outline"} 
-            onClick={() => navigator.clipboard.writeText(`https://www.msrnow.com/marketplace/product/${product.رابط}`)} 
+            onClick={() => navigator.clipboard.writeText(`https://www.msrnow.net/product/${product.رابط}`)} 
             title="نسخ الرابط"
             className="p-2  hover:border-black">
             <Copy strokeWidth={1} size={22} color={"#000"} />

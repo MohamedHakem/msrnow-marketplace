@@ -28,7 +28,7 @@ export default function HeaderAccount({ size }: { size: number }) {
       router.push('/login');
     }
 
-    if (pathname === '/marketplace/checkout' && session.status === 'unauthenticated') {
+    if (pathname === '/checkout' && session.status === 'unauthenticated') {
       toast.error('سجل دخول أولا ليمكنك عمل الاوردر');
       router.push('/login');
     }

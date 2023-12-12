@@ -17,8 +17,8 @@ export default function SecondaryRelatedSections({ marketplaceSections, newsSect
     <ScrollArea dir="rtl" className="laptop:hidden w-full whitespace-nowrap justify-center items-center">
       <div className="h-fit laptop:px-4 overflow-y-auto scroll-smooth bg-[#fafafa] dark:bg-gray-800">
         <ul className="flex flex-row justify-between tablet:justify-start gap-2 font-medium no-scrollbar text-center">
-          {pathname === '/' || pathname.startsWith('/marketplace') ? marketplaceSections.map((section, i) => (
-            <Link key={i} href={`/marketplace/${section.url}`}
+          {pathname === '/' || pathname.startsWith('/') ? marketplaceSections.map((section, i) => (
+            <Link key={i} href={`/${section.url}`}
               className={`w-full ${pathname === `/${section.url}` ? "text-black font-bold border-b" : "font-semibold"}`}>
               <li className="text-black min-w-max hover:bg-gray-100 rounded-md p-2">{section.name}</li>
             </Link>

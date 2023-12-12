@@ -69,7 +69,7 @@ export default async function MyPurchasesPage() {
                   </div>
                   <ul key={i} className="flex flex-col gap-2 p-2 pt-0">
                     {p.orderItems.map((item, i) => (
-                      <Link key={i} href={`/marketplace/product/${item.product.slug}`} className="hover:bg-neutral-50">
+                      <Link key={i} href={`/product/${item.product.slug}`} className="hover:bg-neutral-50">
                         <li>
                           <div className="flex flex-row gap-2">
                             {!item.product.images[0] ? (<></>) : (

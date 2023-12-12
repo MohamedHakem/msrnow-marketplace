@@ -22,7 +22,7 @@ export const columns: ColumnDef<dataTableOrderType>[] = [
       const orderItem = row.original
       return (
         // <Link href={`/dashboard/orders/${orderItem.رمز}`}
-        <Link href={`/marketplace/product/${orderItem.رابط}`}
+        <Link href={`/product/${orderItem.رابط}`}
           className="underline-offset-[6px] underline text-[#00E] font-semibold max-w-[500px] truncate">
           {orderItem.المنتج}
         </Link>

@@ -88,7 +88,7 @@ const Summary = () => {
               <div className="flex h-full flex-col justify-between overflow-hidden p-1">
                 <ul className="flex-grow overflow-auto py-4">
                   {items.map((item, i) => {
-                    const merchandiseUrl = createUrl(`/marketplace/product/${item.id}`, new URLSearchParams({}));
+                    const merchandiseUrl = createUrl(`/product/${item.id}`, new URLSearchParams({}));
                     return (
                       <li key={i} className={`flex w-full flex-col ${items.length > 1 ? "border-b border-neutral-300 dark:border-neutral-700" : ""}`}>
                         <div className="relative flex w-full flex-row justify-between px-1 py-4">
