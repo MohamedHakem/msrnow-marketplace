@@ -43,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </main>
             </div>
           </div>
-          <GoogleTagManager gtmId="GTM-MCQZ8JPF" />
+          <GoogleTagManager gtmId="GTM-K8BVP36S" />
         </AuthContext>
         {/* </ThemeProvider> */}
       </body>
